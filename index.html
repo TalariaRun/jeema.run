@@ -3,45 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Jeema — Run. Compete. Rise.</title>
-    <style>
+    <title>Jeema</title>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       body {
         background: #F9F0EE;
         color: #111;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         min-height: 100vh;
+        display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 40px 24px;
+        text-align: center;
+      }
+      .tortoise {
+        width: 140px;
+        height: 140px;
+        object-fit: contain;
+        margin-bottom: 24px;
       }
       .wordmark {
         font-size: 64px;
         font-weight: 900;
         font-style: italic;
         letter-spacing: -1px;
-        margin-bottom: 12px;
+        margin-bottom: 16px;
       }
-      .tagline {
+      .wip {
         font-size: 13px;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.14em;
         text-transform: uppercase;
-        color: #555;
-        margin-bottom: 48px;
+        color: #888;
       }
-      .badge {
-        display: inline-block;
-        background: #111;
-        color: #F9F0EE;
-        padding: 14px 32px;
-        border-radius: 12px;
-        font-size: 16px;
-        font-weight: 600;
-        text-decoration: none;
-        margin-bottom: 48px;
-      }
-      .badge:hover { opacity: 0.85; }
       footer {
         font-size: 12px;
         color: #999;
@@ -53,9 +47,9 @@
     </style>
   </head>
   <body>
+    <img class="tortoise" src="tortoise.png" alt="Jeema mascot" />
     <div class="wordmark">JEEMA</div>
-    <p class="tagline">Run &middot; Compete &middot; Rise</p>
-    <a class="badge" href="https://apps.apple.com/app/jeema">Download on the App Store</a>
+    <p class="wip">Website coming soon</p>
     <footer>
       &copy; 2026 Jeema &nbsp;&bull;&nbsp;
       <a href="/privacy.html">Privacy Policy</a>
