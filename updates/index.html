@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Updates — Jeema</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #F9F0EE;
+      color: #111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 60px 24px;
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .back {
+      display: inline-block;
+      font-size: 13px;
+      color: #555;
+      text-decoration: none;
+      margin-bottom: 40px;
+      letter-spacing: 0.05em;
+    }
+    .back:hover { color: #111; }
+    .wordmark {
+      font-size: 36px;
+      font-weight: 900;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 48px;
+    }
+    .release {
+      padding-top: 8px;
+      margin-bottom: 56px;
+    }
+    .release-header {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .version {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .summary {
+      font-size: 16px;
+      color: #444;
+      max-width: 620px;
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 32px;
+      margin-bottom: 12px;
+      color: #111;
+    }
+    ul {
+      list-style-position: outside;
+      padding-left: 22px;
+      margin-bottom: 18px;
+    }
+    li {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 8px;
+      padding-left: 2px;
+    }
+    code {
+      background: rgba(17, 17, 17, 0.06);
+      border-radius: 4px;
+      padding: 1px 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.92em;
+    }
+    footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid #ddd;
+      font-size: 12px;
+      color: #999;
+    }
+    footer a { color: #555; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="/">&larr; jeema.run</a>
+
+  <div class="wordmark">JEEMA</div>
+  <h1>Updates</h1>
+  <p class="subtitle">App release notes and changes.</p>
+
+  <article class="release">
+    <header class="release-header">
+      <span class="version">Version 1 · Build 3</span>
+      <h2>Ranked runs, leaderboards, profiles, and post-run polish</h2>
+      <p class="summary">This update focuses on ranked runs, leaderboards, player profiles, and post-run polish.</p>
+    </header>
+
+    <h3>Permissions</h3>
+    <ul>
+      <li>Location and notification permissions are now handled during first-launch setup.</li>
+      <li>Run screens no longer trigger surprise permission popups when starting a run.</li>
+      <li>If location permission is not fully enabled, the setup screen now lets users retry or open Settings.</li>
+      <li>If iOS does not show the <code>Always Allow</code> popup, Jeema now gives clearer instructions to enable it from Settings.</li>
+      <li>Notifications remain optional, but <code>Always Allow</code> location is required for reliable run tracking.</li>
+    </ul>
+
+    <h3>Ranked Runs</h3>
+    <ul>
+      <li>Players now appear on the leaderboard after completing their first placement run.</li>
+      <li>Your first placement run now counts toward your running stats.</li>
+      <li>Ranked runs now save to your stats as soon as the 5 km ranked result is completed.</li>
+      <li>If you continue running after the ranked 5 km, the extra distance still updates the saved run.</li>
+      <li>Apple Watch ranked completions now count toward stats even when only the ranked finish time is received.</li>
+    </ul>
+
+    <h3>Post-Run Results</h3>
+    <ul>
+      <li>The ranked post-5 km screen has been simplified.</li>
+      <li>Result cards now show a clear <code>VICTORY</code> or <code>DEFEAT</code> state instead of comparing your time against the opponent's time.</li>
+      <li>Win and loss cards now use softer theme-friendly green and red colors.</li>
+      <li>Defeat text and supporting text are easier to read.</li>
+      <li>The post-run copy now uses Jeema branding.</li>
+      <li>The share-to-feed ranked result screen no longer uses the old gold theme.</li>
+    </ul>
+
+    <h3>Leaderboards</h3>
+    <ul>
+      <li>Leaderboard visibility now starts after one placement run.</li>
+      <li>Global, regional, friends, and division leaderboards all use the updated placement requirement.</li>
+      <li>Tapping players from the leaderboard now opens their public profile view, not just friend profiles.</li>
+    </ul>
+
+    <h3>Player Profiles</h3>
+    <ul>
+      <li>Player profiles now include a fuller stats view.</li>
+      <li>Profile stats now show mileage, season/all-time stats, elevation, time run, streaks, and personal bests.</li>
+      <li>The mileage card on player profiles now matches the stats page design.</li>
+      <li>Public player profiles no longer show private or editable goal controls.</li>
+    </ul>
+
+    <h3>Previews And Development Fixes</h3>
+    <ul>
+      <li>Fixed ranked run previews that were failing because they depended on live location tracking.</li>
+      <li>Fixed run history previews that were crashing from missing preview environment data.</li>
+      <li>Added a preview for the ranked share-to-feed result screen.</li>
+    </ul>
+
+    <h3>Visual Cleanup</h3>
+    <ul>
+      <li>Removed more of the old gold styling from ranked result screens.</li>
+      <li>Updated ranked result colors to better match the current app theme.</li>
+    </ul>
+  </article>
+
+  <footer>
+    &copy; 2026 Jeema &nbsp;&bull;&nbsp;
+    <a href="/updates">Updates</a> &nbsp;&bull;&nbsp;
+    <a href="/privacy">Privacy Policy</a> &nbsp;&bull;&nbsp;
+    <a href="/support">Support</a>
+  </footer>
+
+</body>
+</html>
