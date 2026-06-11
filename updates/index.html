@@ -146,6 +146,98 @@
   <article class="release">
     <header class="release-header">
       <div>
+        <span class="version">Version 1 · Build 4</span>
+        <h2>Race times, GPS fixes, and monochrome refresh</h2>
+        <p class="summary">Ranked race times now show correctly across all screens. Match history shows elevation credit breakdowns. New info button explains MMR, tiers, and DNF rules. GPS false-start bug fixed. Run History and Friends screens refreshed to match the monochrome theme. Social feed polished. In-app friend request notifications added. Add-friend button now on profiles.</p>
+        <p class="date">Released June 11, 2026</p>
+      </div>
+      <img class="release-art" src="/tortoise_ruler.png" alt="Jeema tortoise holding a ruler" />
+    </header>
+
+    <h3>Run History</h3>
+    <ul>
+      <li>Refreshed the run history screen to better match Jeema's current monochrome theme.</li>
+      <li>Removed the large <code>Run History</code> title from the sheet.</li>
+      <li>Updated the <code>Done</code> button to match the compact style used across other profile sheets.</li>
+      <li>Added stronger black accents to each run card so distance, time, pace, and run type are easier to scan.</li>
+      <li>Kept the page background light so the screen feels consistent with the rest of the app.</li>
+    </ul>
+
+    <h3>Friends</h3>
+    <ul>
+      <li>Refreshed the Friends tab with a cleaner monochrome look.</li>
+      <li>Replaced the old dark green styling with light grey backgrounds, white cards, black buttons, and clearer row borders.</li>
+      <li>Search results, pending requests, and friend rows now use a more consistent card layout.</li>
+      <li>Friend avatars and action buttons now better match the current Jeema theme.</li>
+    </ul>
+
+    <h3>Friend Requests</h3>
+    <ul>
+      <li>Jeema can now show a notification when a new friend request is detected while the app is running.</li>
+      <li>Friend request notifications use the sender's username so it is clear who wants to connect.</li>
+      <li>Foreground notifications can now show as banners instead of being silently hidden while the app is open.</li>
+    </ul>
+
+    <h3>Ranked Match History</h3>
+    <ul>
+      <li>Match history now shows when elevation has added ranked distance credit.</li>
+      <li>Match details now include a clearer breakdown of GPS distance, elevation credit, and ranked effort distance.</li>
+      <li>This should make hilly ranked runs easier to understand when the GPS distance appears slightly under 5 km.</li>
+      <li>Fixed a race condition where match history could reload before the ranked result had finished writing to the server, causing the latest run to appear missing until the next app launch.</li>
+    </ul>
+
+    <h3>Ranked Data Reliability</h3>
+    <ul>
+      <li>Fixed a bug where wins and losses could revert to a stale count after a ranked run if the result failed to write to the server. Wins and losses now always keep the highest value seen, so a network hiccup can no longer undo a recorded result.</li>
+      <li>Fixed app launch sync to use the higher of two data sources when reconciling wins and losses, so a missed write on one path cannot overwrite a correct count from the other.</li>
+      <li>Ranked results that fail to upload due to poor signal are now saved locally and retried automatically the next time a connection is available. No ranked run result should be permanently lost due to a bad connection.</li>
+    </ul>
+
+    <h3>Ranked System Info</h3>
+    <ul>
+      <li>Added an info button to the top-right corner of the ranked card. Tapping it opens a sheet explaining what MMR is, how the 5 km ghost race format works, how MMR changes are calculated, and the full tier structure from Tortoise to Falcon.</li>
+      <li>The ranked info sheet now includes a "FINISHING &amp; DNFs" section explaining that you must physically complete the full 5 km to finish a race, that stopping before 5 km is a DNF and counts as a loss, and that continuing to run after 5 km still tracks all stats.</li>
+    </ul>
+
+    <h3>Ranked Race Times</h3>
+    <ul>
+      <li>The bonus running screen now shows your locked 5 km race time on the result card while you continue running.</li>
+      <li>The end-run result screen now shows a RACE TIME / TOTAL RUN split when you ran past 5 km, so your finish time is never confused with your total run time.</li>
+      <li>The social feed now shows RACE TIME for ranked posts. If the runner continued past 5 km, both RACE and TOTAL times are shown.</li>
+      <li>Match history rows now display the locked 5 km finish time instead of the total run duration.</li>
+      <li>Match history detail view now shows RACE TIME (and TOTAL TIME when applicable). Pace is now calculated from the 5 km race time rather than the full run duration.</li>
+    </ul>
+
+    <h3>Social Feed</h3>
+    <ul>
+      <li>Like and comment buttons on the social feed now use white for better contrast against the dark reel background.</li>
+      <li>Liking a post now triggers haptic feedback. The same feedback fires when double-tapping to like.</li>
+      <li>Fixed an issue where some users' avatars were not showing on the social feed even though the user had a profile photo set. Avatar and username lookups are now handled by separate focused queries, which avoids a PostgREST behaviour where fetching both columns together could silently drop the avatar for some rows.</li>
+    </ul>
+
+    <h3>Member Duration</h3>
+    <ul>
+      <li>Fixed the "MEMBER FOR X DAYS" counter showing one day short. A user who joined today now correctly shows "MEMBER FOR 1 DAY".</li>
+    </ul>
+
+    <h3>Friend Profiles</h3>
+    <ul>
+      <li>An "ADD FRIEND" button now appears on a user's profile when you are not yet friends. Tapping it sends a friend request.</li>
+      <li>If a request is already pending, the button changes to "REQUEST SENT · TAP TO CANCEL" so you can withdraw it.</li>
+      <li>If the other person has already sent you a request, a banner makes that clear.</li>
+    </ul>
+
+    <h3>GPS Distance Accuracy</h3>
+    <ul>
+      <li>Fixed a bug where runs could show an extra 30–50 metres of false distance at the start. iOS delivers stale cached location fixes immediately when tracking begins, and these were being counted as real movement. The app now discards any fix whose timestamp predates the moment tracking started.</li>
+      <li>The same stale-fix protection now applies after unpausing a run, preventing a burst of false distance from a cached location being measured against the pre-pause position.</li>
+      <li>Tightened the GPS accuracy filter so only fixes with less than 25 metres of horizontal uncertainty are used for distance calculations (previously up to 50 metres was accepted). This reduces the path zigzag that caused Jeema to read ahead of other apps like Strava over longer runs.</li>
+    </ul>
+  </article>
+
+  <article class="release">
+    <header class="release-header">
+      <div>
         <span class="version">Version 1 · Build 3</span>
         <h2>Ranked runs, leaderboards, profiles, and post-run polish</h2>
         <p class="summary">This update focuses on ranked runs, leaderboards, player profiles, and post-run polish.</p>
