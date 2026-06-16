@@ -146,6 +146,65 @@
   <article class="release">
     <header class="release-header">
       <div>
+        <span class="version">Version 1 · Build 5</span>
+        <h2>Photo sharing, social stats, and real GPS ranked distance</h2>
+        <p class="summary">Ranked 5 km finish now triggers on real GPS distance only. Bot roster expanded to one bot every 50 MMR across all five tiers, so races should feel much closer. Attach up to 5 photos from your camera roll when sharing a run. Social feed now has a stats slide. Friend profiles now show WIN/LOSS on ranked runs and let you tap any run to see its route and stats. Local leaderboard now uses GPS location instead of device region setting.</p>
+        <p class="date">Released June 15, 2026</p>
+      </div>
+      <img class="release-art" src="/tortoise_blueprint.png" alt="Jeema tortoise holding a blueprint" />
+    </header>
+
+    <h3>Photo Sharing</h3>
+    <ul>
+      <li>You can now attach up to 5 photos from your camera roll when sharing a run to the feed.</li>
+      <li>Photos appear below the description field in the share composer on both the normal run and ranked run result screens.</li>
+      <li>A thumbnail strip previews selected photos before you post.</li>
+      <li>On the feed, swipe left on any post to browse the stats slide and then any attached photos. The map is always the first slide.</li>
+    </ul>
+
+    <h3>Social Feed</h3>
+    <ul>
+      <li>Swiping left on a feed post now shows a stats slide before the photos, displaying distance, pace, duration, elevation, and race duration for ranked runs.</li>
+      <li>The feed card always opens on the map slide when scrolling to a new post, even if you previously swiped to stats or photos on an earlier post.</li>
+      <li>Like and comment buttons have moved below the map card so they no longer overlap the route view.</li>
+      <li>The map and stats card now have a subtle black border for better definition.</li>
+      <li>Stat labels updated: DIST is now DISTANCE, RACE is now RACE TIME, and TOTAL is now TOTAL TIME.</li>
+      <li>Race and total times are now displayed in a cleaner minutes-and-seconds format (e.g. 36m 16s).</li>
+      <li>Elevation is now labelled in metres (m) rather than gain.</li>
+      <li>Removed the position indicator pip strip that appeared on the left side of the feed.</li>
+    </ul>
+
+    <h3>Friend Profiles</h3>
+    <ul>
+      <li>Ranked runs in a friend's recent runs list now show a WIN or LOSS badge in green or red alongside the opponent's name.</li>
+      <li>Tapping any run in a friend's recent runs list opens a detail sheet showing the route map and full run stats.</li>
+      <li>The run detail sheet now respects the app's monochrome or colour theme instead of always appearing dark.</li>
+      <li>The Add Friend button is no longer shown when viewing your own profile from the social feed.</li>
+    </ul>
+
+    <h3>Ranked Distance</h3>
+    <ul>
+      <li>Removed elevation compensation from the ranked finish trigger. The 5 km finish now fires at real GPS distance, matching how Strava and other apps measure your run. Previously, elevation gain was adding up to several hundred metres of credit, causing Jeema to record faster times than your actual GPS distance warranted.</li>
+      <li>Removed the elevation credit breakdown from match history rows and match detail sheets, as elevation no longer contributes to ranked distance.</li>
+    </ul>
+
+    <h3>Local Leaderboard</h3>
+    <ul>
+      <li>Fixed the local leaderboard incorrectly grouping all players under the same country. The app now reverse geocodes your GPS location at the end of a ranked run to determine your country, rather than reading the device's region setting. Players whose phone is set to a different region than where they actually run will now appear on the correct local leaderboard after their next ranked run.</li>
+    </ul>
+
+    <h3>Bot Improvements</h3>
+    <ul>
+      <li>Expanded the bot roster from 7 bots to one bot every 50 MMR, covering the full range from Tortoise through Falcon (MMR 50–14,000).</li>
+      <li>Bot paces are interpolated from known pace-to-MMR anchors, so each bot runs at the speed a real player at that rating would run.</li>
+      <li>The closest bot is now never more than 25 MMR away from any player, meaning races against bots should feel genuinely competitive rather than one-sided.</li>
+      <li>Each bot still has a small per-match pace variance so no two races feel identical.</li>
+    </ul>
+  </article>
+
+  <article class="release">
+    <header class="release-header">
+      <div>
         <span class="version">Version 1 · Build 4</span>
         <h2>Race times, GPS fixes, and monochrome refresh</h2>
         <p class="summary">Ranked race times now show correctly across all screens. Match history shows elevation credit breakdowns. New info button explains MMR, tiers, and DNF rules. GPS false-start bug fixed. Run History and Friends screens refreshed to match the monochrome theme. Social feed polished. In-app friend request notifications added. Add-friend button now on profiles.</p>
