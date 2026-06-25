@@ -146,6 +146,109 @@
   <article class="release">
     <header class="release-header">
       <div>
+        <span class="version">Version 1 · Build 6</span>
+        <h2>Apple Watch ranked races, heart rate, Live Activities, and push notifications</h2>
+        <p class="summary">Apple Watch can now run fully standalone ranked races with a redesigned race screen and theming that matches the phone. Heart rate is captured on watch runs and shown across summaries, match history, and the feed. A new Lock Screen Live Activity tracks your ranked race against your ghost in real time. Real push notifications now alert you to likes, comments, replies, and friend requests even when the app is closed, and comments now support threaded replies. Phone runs sync to Apple Health, a new My Posts page lets you edit and delete shared runs, and smarter MMR helps misplaced players reach their true rank far faster — alongside GPS, pace, and feed map accuracy fixes.</p>
+        <p class="date">Released June 25, 2026</p>
+      </div>
+      <img class="release-art" src="/tortoise.png" alt="Jeema tortoise" />
+    </header>
+
+    <h3>Apple Watch Ranked Runs</h3>
+    <ul>
+      <li>The Apple Watch app can now run ranked races completely standalone, without your phone nearby. It races against a pool of cached real-player ghosts pushed from your phone, falling back to local bots when needed.</li>
+      <li>The watch home screen has been reworked into two clear buttons — Start Ranked and Start Normal — with a tortoise mark. Ranked stays disabled with a hint until you have completed your placement run.</li>
+      <li>Starting a ranked run now follows a proper flow: tap Ranked, a "finding opponent" search, a ready-up, a 10-second countdown, then the run. Phone-initiated matches share the same ready and countdown.</li>
+      <li>Bonus mode lets you keep running past the ranked 5 km. A finish banner shows your result while tracking continues, and your exact 5 km split is captured so bonus distance never corrupts your race time.</li>
+      <li>The watch theme now mirrors the iPhone app (cream monochrome or forest night) via a synced palette, and the watch app icon matches the phone icon.</li>
+      <li>Opening the watch app now pulls a fresh ghost pool, placement status, and theme from your phone rather than waiting on push timing.</li>
+    </ul>
+
+    <h3>Apple Watch Race Screen</h3>
+    <ul>
+      <li>Redesigned the ranked race screen. The two player progress bars have been removed in favour of a single hero number showing how far ahead or behind your ghost you are.</li>
+      <li>Pace is now larger, and the "remaining" readout has been replaced with your live heart rate.</li>
+      <li>The ahead indicator is now green to match the red behind indicator.</li>
+      <li>Redesigned the free-run watch screen too: a larger time and distance, plus a live heart-rate and pace row so heart rate, pace, distance, and time are all visible at once. The stats page now leads with those four metrics, with elevation as a slim footer.</li>
+    </ul>
+
+    <h3>Heart Rate</h3>
+    <ul>
+      <li>Apple Watch runs now capture average and max heart rate and sync them to your phone, where they are saved with the run.</li>
+      <li>Average and max heart rate now appear on the post-run summary, in match history detail, and on feed run detail. Tiles only show when heart-rate data exists, so phone-only runs without a sensor stay clean.</li>
+      <li>Live heart rate is now shown on the watch free-run and ranked race screens, with average and max styled in red on summaries to match.</li>
+    </ul>
+
+    <h3>Lock Screen Live Activity</h3>
+    <ul>
+      <li>Ranked races now show a Live Activity on your Lock Screen and in the Dynamic Island. It displays you versus your ghost opponent with dual progress bars to 5 km and your live lead and elapsed time.</li>
+      <li>The activity persists through bonus mode and ends with a WIN or LOSS and your finish time.</li>
+    </ul>
+
+    <h3>Push Notifications</h3>
+    <ul>
+      <li>Likes, comments, comment replies, and friend requests now arrive as real push notifications even when the app is closed, replacing the old in-app polling that only worked while the app was open.</li>
+      <li>A reply notifies the author of the comment you replied to, while a new top-level comment still notifies the post owner.</li>
+    </ul>
+
+    <h3>Comment Replies</h3>
+    <ul>
+      <li>You can now reply to a comment from the feed's comment sheet. Replies appear indented beneath the comment they answer.</li>
+      <li>A "Replying to @user" banner appears above the composer so it is clear who you are replying to.</li>
+    </ul>
+
+    <h3>Apple Health</h3>
+    <ul>
+      <li>Phone-recorded runs (both normal and ranked) now save to Apple Health as workouts, including distance, an estimated active-energy burn, and your GPS route.</li>
+      <li>Jeema asks for Health permission once after onboarding, and it is entirely optional.</li>
+      <li>Watch runs are intentionally excluded here because the watch already writes them to Health, avoiding duplicates.</li>
+      <li>Fixed the Apple Health badge on your profile always showing "Not Linked"; it now reflects your real connection status.</li>
+    </ul>
+
+    <h3>My Posts</h3>
+    <ul>
+      <li>A new My Posts page on your profile lets you view, edit (caption and photos), and delete runs you have shared to the feed.</li>
+      <li>My Posts and Run History cards now show a route preview map of each run.</li>
+      <li>Fixed multi-photo feed posts dropping photos when you shared before they had finished loading.</li>
+    </ul>
+
+    <h3>Social Feed</h3>
+    <ul>
+      <li>Fixed the feed route map appearing stretched and misaligned from the streets. Routes are now projected through MapKit just like match history, so they are correctly proportioned and aligned to the roads. This fix applies retroactively to every run already in the feed.</li>
+      <li>Runs shared from this build now upload their full-resolution route, so feed maps match the match-history detail exactly.</li>
+      <li>Feed and comment avatars now cache and retry transient network failures, fixing avatars getting stuck on the fallback initial after a flaky connection or while scrolling.</li>
+      <li>Feed post photos now use the same cached image loader, so they no longer fail to load on a flaky network or while scrolling and keep their spinner and fallback states.</li>
+    </ul>
+
+    <h3>Ranked &amp; MMR</h3>
+    <ul>
+      <li>Ranked MMR now gently pulls toward the rating your actual 5 km pace implies, blended with the usual win/loss change. Misplaced players now reach their true rank in around 10–15 runs instead of 100 or more.</li>
+      <li>The pull self-zeroes as you converge on your true rating, and DNFs or interrupted runs earn no pace credit so they stay pure losses.</li>
+      <li>Fixed your fastest 5 km stat not updating from ranked runs. It now uses the exact 5 km crossing time rather than overall average pace, which was diluted when you continued past 5 km in bonus mode. The fix also applies to friend profiles.</li>
+    </ul>
+
+    <h3>Local Leaderboard</h3>
+    <ul>
+      <li>Fixed the local leaderboard reverting to your device region after you ran abroad. Jeema now caches your GPS-derived country and reuses it, instead of letting a location-less sync overwrite it with the device region.</li>
+      <li>On launch, the app reverse geocodes your most recent run's last GPS coordinate, so the local board follows where you actually ran even for runs recorded before this fix.</li>
+    </ul>
+
+    <h3>GPS &amp; Pace Accuracy</h3>
+    <ul>
+      <li>Watch distance now uses HealthKit's fused GPS and pedometer distance instead of summing raw location deltas, with the old method kept as a fallback.</li>
+      <li>The phone now records every GPS fix and adds a stationary-jitter guard, so standing still no longer adds phantom distance.</li>
+      <li>Live pace on both phone and watch is now a smoothed ~20-second rolling average rather than an instantaneous or whole-run figure, so it reacts naturally without jumping around.</li>
+    </ul>
+
+    <h3>Privacy &amp; Analytics</h3>
+    <ul>
+      <li>Restructured how Jeema handles analytics behind the scenes, with a cleaner internal setup and more reliable configuration in shipped builds.</li>
+    </ul>
+  </article>
+
+  <article class="release">
+    <header class="release-header">
+      <div>
         <span class="version">Version 1 · Build 5</span>
         <h2>Photo sharing, social stats, and real GPS ranked distance</h2>
         <p class="summary">Ranked 5 km finish now triggers on real GPS distance only. Bot roster expanded to one bot every 50 MMR across all five tiers, so races should feel much closer. Attach up to 5 photos from your camera roll when sharing a run. Social feed now has a stats slide. Friend profiles now show WIN/LOSS on ranked runs and let you tap any run to see its route and stats. Local leaderboard now uses GPS location instead of device region setting.</p>
