@@ -146,6 +146,130 @@
   <article class="release">
     <header class="release-header">
       <div>
+        <span class="version">Version 1 · Build 7</span>
+        <h2>Per-kilometre splits, full run stats, head-to-head ranked, and a light redesign</h2>
+        <p class="summary">Every run now has per-kilometre split graphs pairing each kilometre's pace with its average heart rate, and you can open a run's full stats from the run-complete screen and Run History, not just the feed. iPhone runs now measure distance with Apple's fused motion sensor for far better accuracy on long runs. Ranked posts and friend profiles now show a head-to-head of both runners' 5 km times with the MMR gained or lost, on everyone's posts. Friend profiles, the Ranked page, your profile, Run History, and My Posts have been redesigned around a cleaner look, every map now uses a light style with a deep-blue route line, and the app is now fully light throughout. The Stats page is rebuilt around a Week / Month / Season / All Time picker with period-over-period comparisons and an adjustable distance chart — alongside disk-cached avatars and photos, a refreshed home screen, and one consistent run-time format across the app.</p>
+        <p class="date">Released July 1, 2026</p>
+      </div>
+      <img class="release-art" src="/tortoise_laptop.png" alt="Jeema tortoise working at a laptop" />
+    </header>
+
+    <h3>Run Splits</h3>
+    <ul>
+      <li>Runs now show per-kilometre split graphs on their stats screen: a bar for each kilometre's pace, with your average heart rate for that kilometre drawn as a line over the top on its own scale, so you can see how your effort and pace tracked across the run.</li>
+      <li>Your fastest kilometre is highlighted, and a final part-kilometre (when your run isn't a whole number of km) is shown separately.</li>
+      <li>Heart rate is only shown for runs recorded with an Apple Watch; phone-only runs show the pace graph alone.</li>
+      <li>Splits appear on runs recorded from this update onward — older runs didn't capture the per-point data needed to draw them, so their stats screen shows the map and totals without the graphs.</li>
+    </ul>
+
+    <h3>Run Stats</h3>
+    <ul>
+      <li>You can now open a run's full stats — route map, distance, pace, time, elevation, heart rate, and the new split graphs — straight from the run-complete screen with a new "View Splits &amp; Stats" button, on both normal and ranked runs.</li>
+      <li>Tapping any run in Run History now opens that same stats screen. Previously a run's detailed stats could only be seen from the social feed.</li>
+    </ul>
+
+    <h3>Social Feed</h3>
+    <ul>
+      <li>Ranked posts now show a head-to-head: the runner's 5 km race time against their opponent's, with the faster runner marked. The MMR gained or lost in the match is shown alongside the VICTORY or DEFEAT result.</li>
+      <li>The always-visible card beneath each ranked post now shows the two race times side by side with the MMR change, so you can read the result without swiping across to the stats slide.</li>
+      <li>The runner's row is labelled with their name (not "you"), so the comparison reads correctly when you're viewing someone else's post.</li>
+      <li>When an opponent's time isn't available for an older run, the post falls back to showing just the runner's race time as before.</li>
+    </ul>
+
+    <h3>Friend Profiles</h3>
+    <ul>
+      <li>Redesigned the profile page top to bottom. A new header leads with a larger profile photo, name, and quick chips for when they joined and how many runs they've logged. As you scroll, the header shrinks into the navigation bar so the person's photo and name stay visible the whole way down.</li>
+      <li>Rebuilt the rank card into a clear dashboard: tier emblem and MMR up top, a wins / losses / win-rate strip, and a promotion bar that fills toward the next division. The bar now reads clearly (the old one was nearly invisible).</li>
+      <li>New career bar shows total distance, total runs, and total hours at a glance.</li>
+      <li>New "you vs them" card compares your stats against theirs — this week's distance, fastest 5 km, and total distance — with the leader marked on each row. (Only shown when viewing someone else's profile.)</li>
+      <li>Recent runs now show a small route preview on each row.</li>
+      <li>Ranked runs in the recent runs list show the MMR gained or lost alongside the WIN or LOSS badge and opponent name, and tapping one opens a head-to-head card comparing both runners' 5 km times with a dedicated MMR change row.</li>
+      <li>Removed the duplicate username that previously sat at the very top of the page.</li>
+    </ul>
+
+    <h3>Maps</h3>
+    <ul>
+      <li>Every map in the app now uses a light style with a deep-blue route line, replacing the previous dark map with a white line. This covers the social feed, ranked match history and match detail, friend-profile run detail, run history and post route previews, and the Apple Watch share-to-feed prompt — so routes look consistent everywhere.</li>
+    </ul>
+
+    <h3>Ranked Data Visibility</h3>
+    <ul>
+      <li>Opponent finish times and MMR changes now appear on other players' ranked posts and profiles, not only your own. Previously this information could only be read for your own runs, so it stayed hidden whenever you viewed a friend's post.</li>
+      <li>This applies to existing ranked posts as well as new ones, wherever both runners' 5 km times and the MMR change were recorded. (A number of older runs recorded before these details were saved will still show the simpler view.)</li>
+    </ul>
+
+    <h3>Ranked Page</h3>
+    <ul>
+      <li>Redesigned the Ranked page to match the cleaner look used across the rest of the app. The rank card now leads with your tier emblem and MMR on a soft tier-tinted card, with a wins / losses / win-rate strip and an easy-to-read promotion bar that animates toward your next division.</li>
+      <li>Match history is now a list of clean cards — each shows a WIN, LOSS, or PLACEMENT badge, your opponent, your 5 km time against theirs, and the MMR gained or lost, all at a glance.</li>
+      <li>Tapping a match opens a redesigned detail sheet with a head-to-head time card (the winner marked), your run stats, and a dedicated MMR change card.</li>
+      <li>The placement progress card and the "About ranked" info sheet were refreshed to match, and the "Queue for Ranked Run" button is now a single clean action.</li>
+    </ul>
+
+    <h3>Stats Page</h3>
+    <ul>
+      <li>The Stats page has a new time-period picker — Week, Month, Season, or All Time — that filters the whole page, so every number and chart reflects the window you choose.</li>
+      <li>A new summary card leads with your total distance for the period, with runs, average pace, time run, and elevation beneath it. Each figure shows how it compares to the previous period (for example "▲ 12% vs last week") — green when you've improved, amber when you've slipped. All Time shows no comparison, as there's no prior period to measure against.</li>
+      <li>A new distance chart you can switch between the last 4 weeks, 12 weeks, or the past year — weekly bars for the shorter ranges, grouped into months for the year — with total, best, and average figures above it. Tap any bar to read its exact distance, and tap anywhere else to dismiss it. Before you've logged any runs it shows a clear empty state instead of placeholder data.</li>
+      <li>Restyled the whole page to a clean monochrome look — the old pastel cards are gone, replaced by white cards with soft shadows and a small splash of colour kept just on each metric's icon.</li>
+      <li>Removed the side-to-side scrolling — your personal bests sit in a tidy grid. The streak is now a single Weekly Streak card you can tap to expand a full breakdown of your current streak: total runs, morning / midday / evening runs, total distance, total time, and your longest run, along with the date it began.</li>
+      <li>Removed the mileage goal card.</li>
+      <li>Replaced the Insights grid's ranked win-rate stat with Average Climb — your average elevation gain per run for the selected period. Win rate is a competitive number that already lives on the Ranked page; average climb is a running stat that fits here and is always populated.</li>
+      <li>The floating "Start a Normal Run" button has moved to the home screen (see Home Screen).</li>
+    </ul>
+
+    <h3>Home Screen</h3>
+    <ul>
+      <li>The home screen now opens with a greeting and your two run actions front and centre — Start a Ranked Run (primary) and Start a Normal Run — so you can begin a run the moment you open the app. Starting a run now lives here: the "Start a Normal Run" button on the Stats page and the "Queue for Ranked Run" button on the Ranked page have been removed, with both actions consolidated onto Home.</li>
+      <li>Refreshed the rank, stats, and leaderboard cards with softer rounded corners, lighter borders, and subtle shadows for a cleaner look on both themes.</li>
+      <li>Sharpened the rank card's tier name to the same bold display type used on the Ranked page.</li>
+      <li>The "RUNS THIS WEEK" counter on the rank card now counts all of your runs for the week, not just ranked ones. It resets on Monday, with Sunday counting as the last day of the week.</li>
+      <li>Profile photos on the home screen and leaderboard now use the shared image cache, falling back to your initial while they load and no longer flashing as you scroll.</li>
+    </ul>
+
+    <h3>Your Profile, Run History &amp; My Posts</h3>
+    <ul>
+      <li>Redesigned your profile page to match the friend profile: the header now carries a soft, rank-tinted background with your tier colour ringing your photo, and the settings cards use lighter hairline borders and gentle shadows for a calmer, more cohesive look.</li>
+      <li>Rebuilt the Run History and My Posts cards. The old dark header band is gone — each run is now a clean white card with a rounded route preview, a RANKED or NORMAL pill, and clear stats, with soft shadows throughout.</li>
+      <li>Both screens now show a tidy light empty state when you have no runs or posts yet.</li>
+    </ul>
+
+    <h3>Run Screens &amp; Apple Watch</h3>
+    <ul>
+      <li>The Apple Watch ranked race screen now shows your distance. It sits large, right under the elapsed time at the top of the screen, so you can see how far you've run at a glance.</li>
+      <li>Live pace during a run is now your average pace for the whole run (total time over total distance) instead of a jumpy real-time reading, on every run screen — the Apple Watch normal and ranked runs and the phone's normal and ranked runs.</li>
+      <li>The Apple Watch no longer buzzes every time the lead changes during a ranked race. It now only vibrates on a decisive lead change (more than 20 metres), so a close, back-and-forth race no longer taps your wrist constantly.</li>
+      <li>Apple Watch runs now record their location, so they show their place name in Run History like phone runs do. Previously watch runs were saved without one. (Applies to watch runs recorded from this update onward.)</li>
+    </ul>
+
+    <h3>Distance Accuracy</h3>
+    <ul>
+      <li>iPhone runs now measure distance using Apple's fused motion sensor — the step counter blended with GPS, the same source the Fitness app uses — instead of adding up raw GPS points. Summing raw GPS tends to read long on longer runs, because GPS jitter adds zig-zags that never cancel out, so distances could come out several percent over; the fused measurement is far steadier and brings iPhone distances much closer to dedicated GPS watches. (Applies to runs recorded from this update onward.)</li>
+      <li>If motion data isn't available, or you decline the Motion &amp; Fitness permission, runs fall back to the previous GPS measurement so nothing breaks.</li>
+    </ul>
+
+    <h3>Appearance</h3>
+    <ul>
+      <li>The app is now light throughout. The run detail, comments, and social feed screens — the last places still using the old dark theme — now match the clean light look used everywhere else in the app.</li>
+      <li>The run-type label now reads "NORMAL" everywhere; the older "quest" wording has been removed.</li>
+    </ul>
+
+    <h3>Image Loading</h3>
+    <ul>
+      <li>Avatars and feed photos now persist to disk between app launches. An image that loaded on a previous run appears instantly on the next cold start instead of being downloaded again — previously images were only kept in memory for the current session.</li>
+      <li>If the system clears stored images to free up space, the app simply re-downloads them as needed.</li>
+    </ul>
+
+    <h3>Run Time Formatting</h3>
+    <ul>
+      <li>Run and race times now use one consistent format across the app — for example "25m 04s", or "1h 02m 15s" once past an hour — on the Stats page, match history, the ranked match detail, and the Apple Watch run summary.</li>
+      <li>Simplified the "Queue for Ranked Run" button.</li>
+    </ul>
+  </article>
+
+  <article class="release">
+    <header class="release-header">
+      <div>
         <span class="version">Version 1 · Build 6</span>
         <h2>Apple Watch ranked races, heart rate, Live Activities, and push notifications</h2>
         <p class="summary">Apple Watch can now run fully standalone ranked races with a redesigned race screen and theming that matches the phone. Heart rate is captured on watch runs and shown across summaries, match history, and the feed. A new Lock Screen Live Activity tracks your ranked race against your ghost in real time. Real push notifications now alert you to likes, comments, replies, and friend requests even when the app is closed, and comments now support threaded replies. Phone runs sync to Apple Health, a new My Posts page lets you edit and delete shared runs, and smarter MMR helps misplaced players reach their true rank far faster — alongside GPS, pace, and feed map accuracy fixes.</p>
