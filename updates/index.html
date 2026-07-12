@@ -146,6 +146,94 @@
   <article class="release">
     <header class="release-header">
       <div>
+        <span class="version">Version 1 · Build 8</span>
+        <h2>A fresh look, a ranked results reveal, barometric elevation, and a guided tour</h2>
+        <p class="summary">Jeema has a fresh look — a rounded, friendlier typeface throughout, a redesigned Stats page led by a Duolingo-style streak flame, and larger, easier-to-read cards and numbers across Stats and the social feed. Ranked runs now end with a proper results moment — a VICTORY or DEFEAT reveal, your MMR bar animating up or down, and a bigger celebration when you're promoted (or a sting when you're demoted) — followed by your run stats and then the share-to-feed page, and it also plays when you open the phone app after a standalone Apple Watch ranked run. Elevation gain is more accurate: both iPhone and Apple Watch now measure climb with the barometer instead of noisy GPS altitude. Sharing gains a camera on the share screen and the ability to post older runs later from Run History, you can now permanently delete your account and all your data, and new users are welcomed with a short guided tour led by a friendly tortoise mascot.</p>
+        <p class="date">Released July 12, 2026</p>
+      </div>
+      <img class="release-art" src="/tortoise_talking.png" alt="Jeema tortoise mascot speaking" />
+    </header>
+
+    <h3>Guided Tour for New Users</h3>
+    <ul>
+      <li>New users now get a short guided tour the first time they use the app. A friendly tortoise mascot pops up in a card along the bottom of the screen and introduces Jeema — explaining that ranked runs pair you with an opponent at your level for a 5 km race, and that winning earns MMR to climb the leaderboard and divisions.</li>
+      <li>The welcome walks through the home page — where you can start a ranked run to queue for a match, or start a normal run if you just want to run without racing.</li>
+      <li>After that, the first time you open each main tab — Ranked, Activity Feed, Stats, and Profile — a card slides up explaining what that page does. Each tip is dismissed with the arrow, and the whole tour runs only once.</li>
+    </ul>
+
+    <h3>Design Refresh</h3>
+    <ul>
+      <li>Jeema now uses Nunito — a rounded, friendlier typeface — across the whole app, from headings and big numbers to body text, for a warmer, more approachable look. Live run timers keep fixed-width digits so they stay steady as they tick.</li>
+      <li>The Stats page has been reworked. It now opens with a streak card front and centre — a flame with your week-streak count, Duolingo-style — replacing the old season header. Tap it to expand a full breakdown of the runs in your current streak.</li>
+      <li>Text, numbers, cards, and buttons are noticeably larger across the Stats page and the social feed, so everything's easier to read at a glance.</li>
+      <li>The runs count on the Stats page is now tappable — it opens your full run history.</li>
+      <li>Updated the profile tab icon to a cleaner filled-person glyph, consistent with the other tab-bar icons.</li>
+    </ul>
+
+    <h3>Ranked Results Reveal</h3>
+    <ul>
+      <li>Finishing a ranked run now plays a results sequence: a VICTORY or DEFEAT banner lands with a haptic, then your rank panel appears — tier emblem, division, and MMR — with the promotion bar animating from your pre-run MMR to your new value while the number counts up or down.</li>
+      <li>Crossing a division or tier boundary triggers a bigger moment: the bar fills (or drains) completely, then a full-screen burst reveals your new rank emblem with a PROMOTED or DEMOTED banner before the bar settles into your position in the new division.</li>
+      <li>After the reveal, your run's stats page (route, splits, and totals) opens automatically, followed by the share-to-feed page — so the post-run flow is always result → stats → share.</li>
+      <li>The same reveal now plays when you open the phone app after finishing a standalone Apple Watch ranked run. It's queued safely, so even if the run synced while the app was closed, the animation, stats page, and post-to-feed prompt play in order on your next open.</li>
+      <li>Placement runs show the win/loss reveal without an MMR bar, since MMR isn't assigned until placement completes.</li>
+      <li>Refreshed the VICTORY / DEFEAT typography on the reveal, the mid-run "ranked complete" card, and the share page to a bolder, cleaner display style.</li>
+    </ul>
+
+    <h3>Ranked Page</h3>
+    <ul>
+      <li>Added a <strong>tier ladder</strong> card beneath your rank card. It lays out all five tiers in order — Tortoise, Rabbit, Gazelle, Cheetah, and Falcon — with your current tier highlighted in colour and the rest shown in muted greyscale, so you can see the whole climb at a glance.</li>
+      <li>A segmented progress bar underneath fills through the tiers up to your position: tiers you've already passed are full, your current tier fills to how far you are through its MMR band, and the tiers ahead sit empty. It animates in on load and whenever your MMR changes.</li>
+    </ul>
+
+    <h3>Home Screen</h3>
+    <ul>
+      <li>The <strong>distance</strong> and <strong>streak</strong> cards on the home screen now show a small chevron, so it's clear they can be tapped to expand — the distance breakdown or the streak calendar. The chevron flips to point up while a card is open, and the static win-rate card is left unmarked since it doesn't expand.</li>
+    </ul>
+
+    <h3>Social Feed</h3>
+    <ul>
+      <li>Tidied the stats slide on ranked feed posts: the VICTORY / DEFEAT result now sits lower with more breathing room at the top of the card (its MMR change stays aligned beside it), and the run's date and time have moved to a footer pinned along the bottom of the card.</li>
+    </ul>
+
+    <h3>Elevation Accuracy</h3>
+    <ul>
+      <li>Elevation gain and loss are now measured with your device's barometric altimeter — the same pressure sensor Apple's Workout app and Strava use — on both iPhone and Apple Watch. It reads altitude changes at a resolution GPS can't get close to.</li>
+      <li>The measuring algorithm was rebuilt as well. The old approach compared each GPS fix to the previous one, which let random altitude wobble pile up as fake climb on flat routes while discarding real, gradual hills whose per-second rise was too small to register. The new approach smooths readings over a trailing window and only counts movement once it clearly leaves the noise band — flat runs now read near zero, and long steady climbs are captured in full.</li>
+      <li>Devices without a barometer fall back to GPS altitude, run through the same smoothing so it no longer inflates.</li>
+      <li>The Apple Watch previously counted every upward wobble with no filtering at all, so watch runs should see the biggest improvement.</li>
+      <li>You may notice lower elevation numbers than before on flat and rolling routes — that's the phantom gain disappearing, not climbing going missing.</li>
+    </ul>
+
+    <h3>Sharing</h3>
+    <ul>
+      <li>You can now take a photo with the camera directly from the share-to-feed screen — on normal runs, ranked runs, and watch-run prompts — alongside picking from your photo library. Camera shots get a small ✕ so you can retake them, and the existing five-photo limit covers both sources together.</li>
+      <li>Runs you didn't post at the time can now be shared later: any run in <strong>Run History</strong> that isn't on your feed shows a <strong>POST TO FEED</strong> button (and a swipe shortcut) that opens the full share screen — caption, photos, camera, route, and stats included. Handy if you accidentally closed the share page after a run.</li>
+      <li>Once a run is posted, the button disappears from its history card.</li>
+    </ul>
+
+    <h3>Account</h3>
+    <ul>
+      <li>You can now delete your account from <strong>Profile → Delete Account</strong>. This permanently removes everything server-side — your profile, runs, posts, ranked history, photos, and sign-in — and can't be undone. A confirmation step guards against accidental taps.</li>
+    </ul>
+
+    <h3>Privacy &amp; Analytics</h3>
+    <ul>
+      <li>Screens are now named in analytics, so usage and friction can be traced to a specific page instead of a generic container. This also makes rageclick reports actually point at the page involved.</li>
+      <li>Fixed sign-ups via Apple being recorded as sign-ins, so new-user numbers are now accurate.</li>
+      <li>Added session replay (with text, images, and inputs masked for privacy) to help diagnose UI issues like mis-taps.</li>
+      <li>Expanded the app's privacy manifest to declare the data Jeema collects — account info, location, fitness, photos, and usage analytics — none of it used for cross-app tracking.</li>
+    </ul>
+
+    <h3>App Store Release</h3>
+    <ul>
+      <li>Housekeeping for the public release: marked the app as using only exempt encryption (standard HTTPS), so submissions no longer prompt for export compliance, and aligned build numbers across the app, widget, and watch.</li>
+    </ul>
+  </article>
+
+  <article class="release">
+    <header class="release-header">
+      <div>
         <span class="version">Version 1 · Build 7</span>
         <h2>Per-kilometre splits, full run stats, head-to-head ranked, and a light redesign</h2>
         <p class="summary">Every run now has per-kilometre split graphs pairing each kilometre's pace with its average heart rate, and you can open a run's full stats from the run-complete screen and Run History, not just the feed. iPhone runs now measure distance with Apple's fused motion sensor for far better accuracy on long runs. Ranked posts and friend profiles now show a head-to-head of both runners' 5 km times with the MMR gained or lost, on everyone's posts. Friend profiles, the Ranked page, your profile, Run History, and My Posts have been redesigned around a cleaner look, every map now uses a light style with a deep-blue route line, and the app is now fully light throughout. The Stats page is rebuilt around a Week / Month / Season / All Time picker with period-over-period comparisons and an adjustable distance chart — alongside disk-cached avatars and photos, a refreshed home screen, and one consistent run-time format across the app.</p>
