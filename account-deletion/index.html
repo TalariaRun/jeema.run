@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Account — Jeema</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #F9F0EE;
+      color: #111;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 60px 24px;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .back {
+      display: inline-block;
+      font-size: 13px;
+      color: #555;
+      text-decoration: none;
+      margin-bottom: 40px;
+      letter-spacing: 0.05em;
+    }
+    .back:hover { color: #111; }
+    .wordmark {
+      font-size: 36px;
+      font-weight: 900;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 48px;
+    }
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      color: #111;
+    }
+    p { margin-bottom: 14px; font-size: 15px; color: #333; }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 6px;
+      margin-top: 20px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fff;
+      font-family: inherit;
+      font-size: 15px;
+      color: #111;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input:focus, textarea:focus { border-color: #888; }
+    textarea { resize: vertical; min-height: 100px; }
+    .send-btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 13px 28px;
+      background: #b3261e;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .send-btn:hover { background: #8c1d17; }
+    .notice {
+      background: #fff;
+      border: 1px solid #eaddda;
+      border-left: 3px solid #b3261e;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: #444;
+    }
+    .notice strong { color: #111; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .success {
+      background: #fff;
+      border: 1px solid #d9e7d9;
+      border-left: 3px solid #2e7d32;
+      border-radius: 8px;
+      padding: 20px 22px;
+      margin-bottom: 24px;
+    }
+    .success h2 { margin-top: 0; color: #2e7d32; }
+    .divider {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 48px 0 36px;
+    }
+    .email-link { color: #111; }
+    footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid #ddd;
+      font-size: 12px;
+      color: #999;
+    }
+    footer a { color: #555; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="/">&larr; jeema.run</a>
+
+  <div class="wordmark">JEEMA</div>
+  <h1>Delete your account</h1>
+  <p class="subtitle">Request permanent deletion of your Jeema account and associated data.</p>
+
+  <!-- Success state, shown after the form redirects back here -->
+  <div class="success" id="success" style="display:none;">
+    <h2>Request received</h2>
+    <p style="margin-bottom:0;">Thanks — we've got your account deletion request and will process it. We'll be in touch at the email you provided if we need anything to verify it.</p>
+  </div>
+
+  <div id="form-section">
+    <h2>Request deletion</h2>
+    <p>Enter the email address linked to your Jeema account. We'll receive your request and delete the account along with its associated data.</p>
+
+    <div class="notice">
+      <strong>This is permanent.</strong> Deleting your account removes your profile, run history, and leaderboard data. This can't be undone.
+    </div>
+
+    <form action="https://formsubmit.co/naidoo.mishay@gmail.com" method="POST">
+      <!-- FormSubmit configuration -->
+      <input type="hidden" name="_subject" value="Jeema — Account deletion request" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_next" value="https://jeema.run/account-deletion/?submitted=true" />
+      <!-- Honeypot: bots fill this, humans never see it -->
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" />
+
+      <label for="email">Account email</label>
+      <input type="email" id="email" name="Account email" required placeholder="you@example.com" />
+
+      <label for="reason">Reason (optional)</label>
+      <textarea id="reason" name="Reason" placeholder="Anything you'd like us to know…"></textarea>
+
+      <button type="submit" class="send-btn">Request account deletion</button>
+    </form>
+  </div>
+
+  <hr class="divider" />
+
+  <h2>Prefer to email us?</h2>
+  <p>
+    You can also email your request to
+    <a class="email-link" href="mailto:naidoo.mishay@gmail.com?subject=Jeema%20%E2%80%94%20Account%20deletion%20request">naidoo.mishay@gmail.com</a>
+    from the address linked to your account.
+  </p>
+  <p>We typically respond within 24–48 hours.</p>
+
+  <footer>
+    &copy; 2026 Jeema &nbsp;&bull;&nbsp;
+    <a href="/updates">Updates</a> &nbsp;&bull;&nbsp;
+    <a href="/privacy">Privacy Policy</a> &nbsp;&bull;&nbsp;
+    <a href="/support">Support</a>
+  </footer>
+
+  <script>
+    if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
+      document.getElementById('success').style.display = 'block';
+      document.getElementById('form-section').style.display = 'none';
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+</body>
+</html>
