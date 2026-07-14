@@ -135,45 +135,31 @@
   <h1>Delete your account</h1>
   <p class="subtitle">Request permanent deletion of your Jeema account and associated data.</p>
 
-  <!-- Success state, shown after the form redirects back here -->
-  <div class="success" id="success" style="display:none;">
-    <h2>Request received</h2>
-    <p style="margin-bottom:0;">Thanks — we've got your account deletion request and will process it. We'll be in touch at the email you provided if we need anything to verify it.</p>
+  <h2>Request deletion</h2>
+  <p>Enter the email address linked to your Jeema account and tap the button — your email client opens with everything pre-filled, and you just hit send. We'll then delete the account along with its associated data.</p>
+
+  <div class="notice">
+    <strong>This is permanent.</strong> Deleting your account removes your profile, run history, and leaderboard data. This can't be undone.
   </div>
 
-  <div id="form-section">
-    <h2>Request deletion</h2>
-    <p>Enter the email address linked to your Jeema account. We'll receive your request and delete the account along with its associated data.</p>
+  <form id="deletion-form">
+    <label for="email">Account email</label>
+    <input type="email" id="email" name="email" required placeholder="you@example.com" />
 
-    <div class="notice">
-      <strong>This is permanent.</strong> Deleting your account removes your profile, run history, and leaderboard data. This can't be undone.
-    </div>
+    <label for="reason">Reason (optional)</label>
+    <textarea id="reason" name="reason" placeholder="Anything you'd like us to know…"></textarea>
 
-    <form action="https://formsubmit.co/naidoo.mishay@gmail.com" method="POST">
-      <!-- FormSubmit configuration -->
-      <input type="hidden" name="_subject" value="Jeema — Account deletion request" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_next" value="https://jeema.run/account-deletion/?submitted=true" />
-      <!-- Honeypot: bots fill this, humans never see it -->
-      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" />
-
-      <label for="email">Account email</label>
-      <input type="email" id="email" name="Account email" required placeholder="you@example.com" />
-
-      <label for="reason">Reason (optional)</label>
-      <textarea id="reason" name="Reason" placeholder="Anything you'd like us to know…"></textarea>
-
-      <button type="submit" class="send-btn">Request account deletion</button>
-    </form>
-  </div>
+    <a id="mailto-link" class="send-btn" href="#">Open in email to send request</a>
+    <p id="email-hint" style="margin-top:12px;font-size:13px;color:#b3261e;display:none;">Please enter the email linked to your account first.</p>
+  </form>
 
   <hr class="divider" />
 
-  <h2>Prefer to email us?</h2>
+  <h2>Button not working?</h2>
   <p>
-    You can also email your request to
+    If your device doesn't have an email app set up, just send an email to
     <a class="email-link" href="mailto:naidoo.mishay@gmail.com?subject=Jeema%20%E2%80%94%20Account%20deletion%20request">naidoo.mishay@gmail.com</a>
-    from the address linked to your account.
+    from the address linked to your account, with the subject "Account deletion request".
   </p>
   <p>We typically respond within 24–48 hours.</p>
 
@@ -185,11 +171,41 @@
   </footer>
 
   <script>
-    if (new URLSearchParams(window.location.search).get('submitted') === 'true') {
-      document.getElementById('success').style.display = 'block';
-      document.getElementById('form-section').style.display = 'none';
-      window.scrollTo(0, 0);
+    var emailInput = document.getElementById('email');
+    var reasonInput = document.getElementById('reason');
+    var link = document.getElementById('mailto-link');
+    var hint = document.getElementById('email-hint');
+
+    function isValidEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
     }
+
+    function updateMailto() {
+      var email = emailInput.value.trim();
+      var reason = reasonInput.value.trim();
+      var subject = encodeURIComponent('Jeema — Account deletion request');
+      var body = 'I would like to permanently delete my Jeema account.\n\n' +
+                 'Account email: ' + email + '\n';
+      if (reason) body += 'Reason: ' + reason + '\n';
+      body += '\nI understand this is permanent and cannot be undone.';
+      link.href = 'mailto:naidoo.mishay@gmail.com?subject=' + subject +
+                  '&body=' + encodeURIComponent(body);
+    }
+
+    link.addEventListener('click', function (e) {
+      if (!isValidEmail(emailInput.value)) {
+        e.preventDefault();
+        hint.style.display = 'block';
+        emailInput.focus();
+      }
+    });
+
+    emailInput.addEventListener('input', function () {
+      if (isValidEmail(emailInput.value)) hint.style.display = 'none';
+      updateMailto();
+    });
+    reasonInput.addEventListener('input', updateMailto);
+    updateMailto();
   </script>
 
 </body>
